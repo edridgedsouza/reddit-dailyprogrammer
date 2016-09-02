@@ -45,12 +45,10 @@ def GetPost(challengeNumber, difficultyNumber):
         
     truePosts = [i for i in subsearch if VerifyPost(i, challengeNumber, difficultyNumber)]
     
-    if len(truePosts) == 1:
-        post = truePosts[0]
-        title, url, body = post.title, post.url, post.selftext
-    else:
-        print("Ambiguous search. Please try again with clear parameters.")
-        return False # Just exit the function before anything gets done
+    # Select just the first (i.e. most relevant) post
+    post = truePosts[0]
+    title, url, body = post.title, post.url, post.selftext
+
     
     
 #==============================================================================
