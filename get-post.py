@@ -52,6 +52,15 @@ def GetPost(challengeNumber, difficultyNumber):
     else:
         post = truePosts[0]
         title, url, body = post.title, post.url, post.selftext
+    
+    # Now that we've gotten the post content, we should focus on parsing it
+    # Then we can add it to our local file system
+    
+    readme = u'#' + title + '\n' + url + '\n\n'+ body
+    subdir = u'challenge' + challengeNumber
+    subsubdir = str( re.search('\[(\w*?)\]', title).group(1) ) # The difficulty
+    filename = u'challenge.md'
+    
 
     
     
