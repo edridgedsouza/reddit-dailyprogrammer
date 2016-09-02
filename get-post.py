@@ -46,8 +46,12 @@ def GetPost(challengeNumber, difficultyNumber):
     truePosts = [i for i in subsearch if VerifyPost(i, challengeNumber, difficultyNumber)]
     
     # Select just the first (i.e. most relevant) post
-    post = truePosts[0]
-    title, url, body = post.title, post.url, post.selftext
+    if len(truePosts) == 0:
+        print("No results found. Please try again.")
+        return False
+    else:
+        post = truePosts[0]
+        title, url, body = post.title, post.url, post.selftext
 
     
     
