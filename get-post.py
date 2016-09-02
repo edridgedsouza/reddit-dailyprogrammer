@@ -10,6 +10,7 @@
 
 import praw
 import re
+import os
 #import argparse
 
 def GetPost(challengeNumber, difficultyNumber):
@@ -56,11 +57,14 @@ def GetPost(challengeNumber, difficultyNumber):
     # Now that we've gotten the post content, we should focus on parsing it
     # Then we can add it to our local file system
     
-    readme = u'#' + title + '\n' + url + '\n\n'+ body
-    subdir = u'challenge' + challengeNumber
-    subsubdir = str( re.search('\[(\w*?)\]', title).group(1) ) # The difficulty
+    filebody = u'#' + title + '\n' + url + '\n\n'+ body
     filename = u'challenge.md'
-    
+    subdir = u'challenge' + str(challengeNumber)
+    subsubdir = str( re.search('\[(\w*?)\]', title).group(1) ) # The difficulty
+
+    # Now use `os` to make dir `posts` if it doesn't exist
+    # Then, create file ./posts/subdir/subsubdir/filename
+    # Then write `filebody` to the file.
 
     
     
