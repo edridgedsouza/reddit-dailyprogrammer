@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 # Schematic: evaluate from command line
-# ./get-post.py [challengeNumber] [difficultyNumber]
+# ../get-post.py [challengeNumber] [difficultyNumber]
 # Will create a directory ./posts/challenge[challengeNumber]/[difficulty]
 # Within the directory, create challenge.md with content from Reddit post
 # From there, you can try to solve the problem within its own directory
