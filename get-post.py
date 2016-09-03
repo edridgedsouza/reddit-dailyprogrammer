@@ -36,7 +36,7 @@ def GetPost(challengeNumber, difficultyNumber):
     # Double-check post title contains right challenge number and difficulty
     def VerifyPost(redditobject, ch, diff):
         title = redditobject.title.lower()
-        rightChallenge = bool(re.search(str(ch), title))
+        rightChallenge = bool(re.search(u'# *' + str(ch) + ' \[' , title))
         difficulty = {
             1: u'easy',
             2: u'(medium|intermediate)',
@@ -50,7 +50,8 @@ def GetPost(challengeNumber, difficultyNumber):
     
     # Select just the first (i.e. most relevant) post
     if len(truePosts) == 0:
-        print("No results found. Please try again.")
+        print('No results found for post ' + str(challengeNumber) + \
+                ' at difficulty ' + str(difficultyNumber) + '. Please try again.')
         return False
     else:
         post = truePosts[0]
