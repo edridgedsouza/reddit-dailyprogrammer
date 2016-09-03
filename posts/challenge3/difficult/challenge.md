@@ -1,5 +1,7 @@
 #[2/11/2012] challenge #3 [difficult]
+
 /u/nottoobadguy
+
 https://www.reddit.com/r/dailyprogrammer/comments/pkwgf/2112012_challenge_3_difficult/
 
 Welcome to cipher day!

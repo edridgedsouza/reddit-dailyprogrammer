@@ -67,19 +67,19 @@ def GetPost(challengeNumber, difficultyNumber):
     subsubdir = str( re.search('\[(\w*?)\]', title).group(1) ) # The difficulty
 
     # Now use `os` to make dir `posts` if it doesn't exist
-    # Then, create file ./posts/subdir/subsubdir/filename
+    # Then, create file ../posts/subdir/subsubdir/filename
     # Then write `filebody` to the file.
 
     # Are all of these necessary? Possibly not but won't risk overwrite
-    if not os.path.isdir("./posts"):
-        os.makedirs("./posts")
-    if not os.path.isdir("./posts/" + subdir):
-        os.makedirs("./posts/" + subdir)
-    if not os.path.isdir("./posts/" + subdir + "/" + subsubdir):
-        os.makedirs("./posts/" + subdir + "/" + subsubdir)
+    if not os.path.isdir("../posts"):
+        os.makedirs("../posts")
+    if not os.path.isdir("../posts/" + subdir):
+        os.makedirs("../posts/" + subdir)
+    if not os.path.isdir("../posts/" + subdir + "/" + subsubdir):
+        os.makedirs("../posts/" + subdir + "/" + subsubdir)
     
-    os.chmod("./posts", 0o644) # Fix permission errors?
-    os.chdir("./posts/" + subdir + "/" + subsubdir)    
+    os.chmod("../posts", 0o644) # Fix permission errors?
+    os.chdir("../posts/" + subdir + "/" + subsubdir)    
     file = open(filename, 'w')
     file.write(filebody)
     file.close()
