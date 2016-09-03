@@ -11,7 +11,9 @@
 import praw
 import re
 import os
+import sys
 #import argparse
+
 
 def GetPost(challengeNumber, difficultyNumber):
     user_agent = "Edridge D'Souza get-post script for /r/dailyprogrammer"
@@ -66,12 +68,24 @@ def GetPost(challengeNumber, difficultyNumber):
     # Then, create file ./posts/subdir/subsubdir/filename
     # Then write `filebody` to the file.
 
+    # Are all of these necessary? Possibly not but won't risk overwrite
+    if not os.path.isdir("./path"):
+        os.makedirs("./path")
+    if not os.path.isdir("./path/" + subdir):
+        os.makedirs("./path/" + subdir)
+    if not os.path.isdir("./path/" + subdir + "/" + subsubdir):
+        os.makedirs("./path/" + subdir + "/" + subsubdir)
     
-    
+    os.chdir("./path/" + subdir + "/" + subsubdir)    
+    file = open(filename, 'w')
+    file.write(filebody)
+    file.close()
+    print('\nSuccessfully wrote post to file!\nPost: ' + title + '\n' + url)
 #==============================================================================
 # Execution
 #==============================================================================
-if __name__ == "__main__":
+if __name__ == "__main__":   
+    os.chdir(os.path.dirname(sys.argv[0])) # `pwd` is now script location
     challengeNumber = 255
     difficultyNumber = 3
     GetPost(challengeNumber, difficultyNumber)
