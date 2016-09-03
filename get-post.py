@@ -61,7 +61,7 @@ def GetPost(challengeNumber, difficultyNumber):
     # Now that we've gotten the post content, we should focus on parsing it
     # Then we can add it to our local file system
     
-    filebody = u'#' + title + '\n' + poster + '\n' + url + '\n\n'+ body
+    filebody = u'#' + title + u'\n\n' + poster + u'\n\n' + url + u'\n\n'+ body
     filename = u'challenge.md'
     subdir = u'challenge' + str(challengeNumber)
     subsubdir = str( re.search('\[(\w*?)\]', title).group(1) ) # The difficulty
@@ -83,7 +83,7 @@ def GetPost(challengeNumber, difficultyNumber):
     file = open(filename, 'w')
     file.write(filebody)
     file.close()
-    print('\nSuccessfully wrote post to file!\nPost: ' + title + '\n' + url)
+    print('\nSuccessfully wrote post to file!\nPost: ' + title + u'\n' + url)
     
     return True
     
